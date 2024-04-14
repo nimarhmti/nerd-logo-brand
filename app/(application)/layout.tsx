@@ -6,13 +6,9 @@ export default function MainApplicationLayout({
   children,
 }: mainApplicationProps) {
   return (
-    <html>
-      <body>
-        mainApplicationProps
-        {
-          children
-        }
-      </body>
-    </html>
+    <div>
+      mainApplicationProps
+      {children}
+    </div>
   );
 }
