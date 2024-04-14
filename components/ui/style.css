@@ -1,0 +1,23 @@
+.logoColor {
+  background: linear-gradient(114.44deg, #4d84ff 0%, #de8fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+.activeRouteItem {
+  background: linear-gradient(
+    90deg,
+    #f2eefd 6.16%,
+    rgba(242, 238, 253, 0) 100%
+  );
+  @apply border-l-2 border-selectedItem transition-all ease-out duration-75;
+}
+.activeRouteItem svg {
+  @apply fill-selectedItem;
+}
+
+.unActiveItem svg,
+h1 {
+  @apply fill-baseColor text-baseColor;
+}

@@ -27,7 +27,15 @@ const config = {
           fontWeight: "400",
         },
       ],
+      logText: [
+        "24px",
+        {
+          lineHeight: "18px",
+          fontWeight: "700",
+        },
+      ],
     },
+
     container: {
       center: true,
       padding: "2rem",
@@ -42,6 +50,7 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         selectedItem: "#9373EE",
+        mainBack: "#FCFCFD",
         baseColor: "#747474",
         borderColor: "#EFEFEF",
         fieldColor: "#F8F8F8",

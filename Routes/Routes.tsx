@@ -12,6 +12,7 @@ export interface RoutesModel {
   name: string;
   Icon: React.ReactNode;
   href: string;
+  label: string;
 }
 
 const Routes: RoutesModel[] = [
@@ -19,36 +20,43 @@ const Routes: RoutesModel[] = [
     name: "Dashboard",
     Icon: <DashboardSVG />,
     href: "/dashboard",
+    label: "dashboard",
   },
   {
     name: "chat",
     Icon: <ChatSVG />,
     href: "/chat",
+    label: "chat",
   },
   {
     name: "ReWrite",
     Icon: <ReWriterSVG />,
-    href: "/rewriter",
+    href: "/rewrite",
+    label: "rewrite",
   },
   {
     name: "Images",
     Icon: <ImagesSVG />,
     href: "/images",
+    label: "images",
   },
   {
     name: "translate",
     Icon: <TranslateSVG />,
     href: "/translate",
+    label: "translate",
   },
   {
-    name: "grammar",
+    name: "Grammar",
     Icon: <GrammarSVG />,
     href: "/grammar",
+    label: "grammar",
   },
   {
-    name: "code",
+    name: "Code",
     Icon: <CodeSVG />,
     href: "/code",
+    label: "code",
   },
 ];
 export { Routes };
