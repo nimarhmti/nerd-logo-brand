@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-function ReWriterSVG(props: SVGProps<SVGSVGElement>) {
+export const ReWriterSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width="19" height="18" viewBox="0 0 19 18" {...props}>
       <path
@@ -11,7 +11,7 @@ function ReWriterSVG(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
-export default ReWriterSVG;
+};
+
 // fill="#747474"
 // fill="#9373EE"

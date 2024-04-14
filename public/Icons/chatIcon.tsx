@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-function ChatSVG(props: SVGProps<SVGSVGElement>) {
+export const ChatSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" {...props}>
       <path
@@ -11,6 +11,6 @@ function ChatSVG(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
+};
 export default ChatSVG;
 // fill="#747474"

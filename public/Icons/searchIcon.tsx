@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-function SearchSVG(props: SVGProps<SVGSVGElement>) {
+export const SearchSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20">
       <path
@@ -11,7 +11,7 @@ function SearchSVG(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
-export default SearchSVG;
+};
+
 // fill="#747474"
 // fill = "#747474";

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-function ImagesSVG(props: SVGProps<SVGSVGElement>) {
+export const ImagesSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width="20" height="18" viewBox="0 0 20 18" {...props}>
       <path
@@ -11,6 +11,5 @@ function ImagesSVG(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
-export default ImagesSVG;
+};
 // fill="#747474"

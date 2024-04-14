@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-function checkSVG(props: SVGProps<SVGSVGElement>) {
+export const checkSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width="13" height="10" viewBox="0 0 13 10" {...props}>
       <path
@@ -12,6 +12,6 @@ function checkSVG(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
+};
 export default checkSVG;
 // fill="#747474"

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-function NotificationSVG(props: SVGProps<SVGSVGElement>) {
+export const NotificationSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width="18" height="21" viewBox="0 0 18 21">
       <path
@@ -11,6 +11,6 @@ function NotificationSVG(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
-export default NotificationSVG;
+};
+
 // fill="#747474"

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-function PinSVG(props: SVGProps<SVGSVGElement>) {
+export const PinSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" {...props}>
       <path
@@ -10,7 +10,7 @@ function PinSVG(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
-export default PinSVG;
+};
+
 // fill="#747474"
 // fill="#9373EE"

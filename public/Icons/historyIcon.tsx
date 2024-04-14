@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-function HistorySVG(props: SVGProps<SVGSVGElement>) {
+export const HistorySVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width="20" height="21" viewBox="0 0 20 21" {...props}>
       <path
@@ -11,7 +11,7 @@ function HistorySVG(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
+};
 export default HistorySVG;
 // fill="#747474"
 // fill="#9373EE"

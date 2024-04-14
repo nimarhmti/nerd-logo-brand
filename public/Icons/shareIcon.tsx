@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-function ShareSVG(props: SVGProps<SVGSVGElement>) {
+export const ShareSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" {...props}>
       <path
@@ -11,6 +11,6 @@ function ShareSVG(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
-export default ShareSVG;
+};
+
 // fill="#747474"

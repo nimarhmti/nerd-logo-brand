@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-function TranslateSVG(props: SVGProps<SVGSVGElement>) {
+export const TranslateSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width="18" height="19" viewBox="0 0 18 19" {...props}>
       <path
@@ -11,6 +11,6 @@ function TranslateSVG(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
-export default TranslateSVG;
+};
+
 // fill="#747474"

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-function LOGOSVG(props: SVGProps<SVGSVGElement>) {
+export const LOGOSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="42"
@@ -31,8 +31,8 @@ function LOGOSVG(props: SVGProps<SVGSVGElement>) {
       </defs>
     </svg>
   );
-}
-export default LOGOSVG;
+};
+
 // fill="#747474"
 // fill="#9373EE"
 // fill = "#D7D7D7";
