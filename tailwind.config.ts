@@ -46,6 +46,7 @@ const config = {
         borderColor: "#EFEFEF",
         fieldColor: "#F8F8F8",
         hoverHighLight: "#F2EEFD",
+        brandColor: "linear-gradient(114.44deg, #4D84FF 0%, #DE8FFF 100%);",
         secondaryHighlight:
           "linear-gradient(90deg, #F2EEFD 6.16%, rgba(242, 238, 253, 0) 100%);",
         mainDark: "#181818",
