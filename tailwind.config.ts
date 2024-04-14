@@ -10,6 +10,24 @@ const config = {
   ],
   prefix: "",
   theme: {
+    fontSize: {
+      labelText: ["14px", { fontWeight: "500", lineHeight: "20px" }],
+      description: ["12px", { lineHeight: "16px", fontWeight: "400" }],
+      titleText: [
+        "24px",
+        {
+          fontWeight: "500",
+          lineHeight: "18px",
+        },
+      ],
+      baseText: [
+        "14px",
+        {
+          lineHeight: "18px",
+          fontWeight: "400",
+        },
+      ],
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -28,6 +46,8 @@ const config = {
         borderColor: "#EFEFEF",
         fieldColor: "#F8F8F8",
         hoverHighLight: "#F2EEFD",
+        secondaryHighlight:
+          "linear-gradient(90deg, #F2EEFD 6.16%, rgba(242, 238, 253, 0) 100%);",
         mainDark: "#181818",
         foreground: "hsl(var(--foreground))",
         primary: {
