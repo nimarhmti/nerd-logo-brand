@@ -1,29 +1,51 @@
 import { HistorySVG, ShareSVG } from "@/public/Icons";
 import { MoreSVG } from "@/public/Icons/moreIConSVG";
 import React, { MouseEvent } from "react";
-interface Props {
-  onClick?: (e: MouseEvent<HTMLLIElement>) => void;
-  children?: React.ReactNode;
-  open?: boolean;
-  isActive: boolean;
-  direction: string;
-  items?: [];
+//types----------------------------------->
+interface ItemsModel {
+  name?: string;
+  id: string;
+  icon: React.ReactNode;
 }
-export default function DropDown({ onClick, open, children }: Props) {
+interface Props {
+  getActiveItem: (id: string) => void;
+  children?: React.ReactNode;
+  open: boolean;
+  isActive?: string;
+  direction: string;
+  items: ItemsModel[];
+}
+
+//mainFunction--------------------------->
+export default function DropDown({
+  getActiveItem,
+  open,
+  children,
+  items,
+  direction,
+  isActive,
+}: Props) {
+  //condition handler--------------------->
+  const isActiveItem = (id: string) => id === isActive;
+
+  //main u iFunction---------------------->
   return (
     <div className="relative">
-      <div className=" bg-mainBack border rounded-full p-2 hover:bg-hoverHighLight">
-        <MoreSVG className="fill-baseColor" />
-      </div>
-      <ul className="absolute bg-mainBack w-fit border border-background right-2 top-10 rounded-md ">
-        <li className=" w-full bg-mainBack px-3 gap-x-2 py-2 hover:bg-hoverHighLight cursor-pointer flex items-center justify-end ">
-          <ShareSVG className="fill-baseColor" />
-          <span className="text-">History</span>
-        </li>
-        <li className=" w-full bg-mainBack px-3 gap-x-2 py-2 hover:bg-hoverHighLight cursor-pointer flex items-center justify-end ">
-          <HistorySVG className="fill-baseColor" />
-          <span className="text-">History</span>
-        </li>
+      {children}
+      <ul
+        className={`absolute bg-mainBack w-fit border border-borderColor ${direction} rounded-md ${open ? "block" : "hidden"}`}
+      >
+        {items?.map((item: ItemsModel) => (
+          <li
+            onClick={() => getActiveItem(item.id)}
+            id={item.id}
+            key={item.id}
+            className={` w-full px-3 gap-x-2 py-2 hover:bg-hoverHighLight cursor-pointer flex items-center justify-end ${isActiveItem(item.id) ? "bg-hoverHighLight text-selectedItem" : "bg-mainBack "}`}
+          >
+            {item.icon}
+            {item.name && <span className="text-">{item.name}</span>}
+          </li>
+        ))}
       </ul>
     </div>
   );
