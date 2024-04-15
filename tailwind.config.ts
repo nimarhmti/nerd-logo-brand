@@ -10,6 +10,17 @@ const config = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      tablet: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      laptop: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      desktop: "1280px",
+      // => @media (min-width: 1280px) { ... }
+    },
+
     fontSize: {
       labelText: ["14px", { fontWeight: "500", lineHeight: "20px" }],
       description: ["12px", { lineHeight: "16px", fontWeight: "400" }],

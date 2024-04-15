@@ -21,3 +21,7 @@
 h1 {
   @apply fill-baseColor text-baseColor;
 }
+
+.hoverButton svg {
+  @apply fill-selectedItem;
+}
