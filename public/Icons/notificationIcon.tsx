@@ -3,7 +3,7 @@ import { SVGProps } from "react";
 
 export const NotificationSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg width="18" height="21" viewBox="0 0 18 21">
+    <svg width="18" height="21" viewBox="0 0 18 21" {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
