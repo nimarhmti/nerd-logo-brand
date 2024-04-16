@@ -1,7 +1,7 @@
 "use client";
 import { CheckSVG, SearchSVG } from "@/public/Icons";
 import { OpenSVG } from "@/public/Icons/openIcon";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, FormEvent } from "react";
 
 //types-------------------------------->
 interface optionModel {
@@ -11,14 +11,12 @@ interface optionModel {
 }
 
 interface Props {
-  placeHolder?: string;
   isSearchable?: boolean;
-  onChange?: () => void;
-  options?: optionModel[];
-  isMulti?: boolean;
-  align?: string;
-  name?: string;
-  label?: string;
+  onChange: (option: optionModel) => void;
+  options: optionModel[];
+  align?: "top" | "down";
+  name: string;
+  label: string;
 }
 
 type InputType = HTMLInputElement;
@@ -26,19 +24,17 @@ type InputType = HTMLInputElement;
 //main function
 export default function SelectOption({
   align,
-  isMulti,
   isSearchable,
   onChange,
   options,
-  placeHolder,
   name,
   label,
 }: Props) {
   // State variables using React hooks
   const [showMenu, setShowMenu] = useState<boolean>(false); // Controls the visibility of the dropdown menu
-  const [selectedValue, setSelectedValue] = useState<
-    optionModel[] | null | []
-  >(isMulti ? [] : null); // Stores the selected value(s)
+  const [selectedItem, setSelectedItem] = useState<string>(
+    options[0].id,
+  );
   const [searchValue, setSearchValue] = useState(""); // Stores the value entered in the search input
   const searchRef = useRef<InputType>(null); // Reference to the search input element
   const inputRef = useRef<InputType>(null); // Reference to the custom select input element
@@ -49,46 +45,54 @@ export default function SelectOption({
       searchRef.current.focus();
     }
   }, [showMenu]);
-  useEffect(() => {
-    const handler = (e: any) => {
-      if (inputRef.current && !inputRef.current.contains(e.target)) {
-        setShowMenu(false);
-      }
-    };
+  //handler function--------------------->
 
-    window.addEventListener("click", handler);
-    return () => {
-      window.removeEventListener("click", handler);
-    };
-  });
-
-  //   const handleInputClick = () => {
-  //     setShowMenu(!showMenu);
-  //   };
-
-  //   const getDisplay = () => {
-  //     if()
-  //   };
+  const onClickOption = (option: optionModel) => {
+    setSelectedItem(option.id);
+    onChange(option);
+  };
 
   const handleClick = () => {
     setShowMenu((pre) => !pre);
   };
 
+  const getOptions = () => {
+    if (!searchValue) {
+      return options;
+    }
+
+    return options?.filter(
+      (option) =>
+        option.label
+          .toLowerCase()
+          .indexOf(searchValue.toLowerCase()) >= 0,
+    );
+  };
+
+  const onSearch = (e: FormEvent<HTMLInputElement>) => {
+    const { value } = e.currentTarget;
+    setSearchValue(value);
+  };
   //condition
 
   const active = showMenu
     ? "bg-white border border-mainDark"
     : "bg-fieldColor border-none";
+  const rotate = showMenu ? "rotate-180" : "rotate-0";
+
+  const Highlighter = (id: string) => id === selectedItem;
 
   //Main UI function
   return (
     <div className="relative">
       <h3 className="text-mainDark text-">{label}</h3>
       <div
+        ref={inputRef}
         onClick={handleClick}
-        className={`${active} h-[44px]  rounded-xl  cursor-pointer py-[6px] px-[16px] text-labelText flex items-center`}
+        className={`${active} h-[44px]  rounded-xl  cursor-pointer py-[6px] px-[16px] text-labelText flex items-center justify-between`}
       >
         {name}
+        <OpenSVG className={`fill-baseColor ${rotate}`} />
       </div>
       {showMenu && (
         <ul
@@ -99,22 +103,28 @@ export default function SelectOption({
               <input
                 type="text"
                 placeholder="search"
-                className=" rounded-xl  outline-none w-full py-[6px] pr-[16px] pl-[33px] bg-fieldColor  "
+                className=" rounded-xl  outline-none w-full py-[6px] pr-[16px] pl-[33px] bg-fieldColor "
+                ref={searchRef}
+                onChange={onSearch}
+                value={searchValue}
               />
               <div className="left-2 top-2 absolute">
                 <SearchSVG className="fill-baseColor absolute " />
               </div>
             </div>
           )}
-          {options?.map((item: optionModel) => (
+          {getOptions()?.map((item: optionModel) => (
             <li
               id={item.id}
+              onClick={() => onClickOption(item)}
               key={item.id}
               value={item.value}
-              className=" w-full h-[36px] text-baseColor hover:bg-fieldColor rounded-xl text-field items-center justify-between flex py-[6px] px-[24px]"
+              className={`w-full h-[36px] text-baseColor ${Highlighter(item.id) ? "bg-hoverHighLight" : "bg-white"} hover:bg-fieldColor rounded-xl text-field items-center justify-between flex py-[6px] px-[24px] `}
             >
               {item.label}
-              <CheckSVG className="file:bg-mainDark" />
+              {Highlighter(item.id) && (
+                <CheckSVG className="file:bg-mainDark" />
+              )}
             </li>
           ))}
         </ul>
