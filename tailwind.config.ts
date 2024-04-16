@@ -23,7 +23,18 @@ const config = {
 
     fontSize: {
       labelText: ["14px", { fontWeight: "500", lineHeight: "20px" }],
-      description: ["12px", { lineHeight: "16px", fontWeight: "400" }],
+      description: [
+        "12px",
+        { lineHeight: "16px", fontWeight: "400" },
+      ],
+
+      field: [
+        "12px",
+        {
+          fontWeight: 400,
+          lineHeight: "18px",
+        },
+      ],
       titleText: [
         "24px",
         {
@@ -66,7 +77,8 @@ const config = {
         borderColor: "#EFEFEF",
         fieldColor: "#F8F8F8",
         hoverHighLight: "#F2EEFD",
-        brandColor: "linear-gradient(114.44deg, #4D84FF 0%, #DE8FFF 100%);",
+        brandColor:
+          "linear-gradient(114.44deg, #4D84FF 0%, #DE8FFF 100%);",
         secondaryHighlight:
           "linear-gradient(90deg, #F2EEFD 6.16%, rgba(242, 238, 253, 0) 100%);",
         mainDark: "#181818",
